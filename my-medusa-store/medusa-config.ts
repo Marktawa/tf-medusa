@@ -13,9 +13,9 @@ module.exports = defineConfig({
         // 2. Add Redis URL
     redisUrl: process.env.REDIS_URL,
     http: {
-      storeCors: process.env.STORE_CORS!,
-      adminCors: process.env.ADMIN_CORS!,
-      authCors: process.env.AUTH_CORS!,
+      storeCors: process.env.STORE_CORS,
+      adminCors: process.env.ADMIN_CORS,
+      authCors: process.env.AUTH_CORS,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     }
@@ -34,11 +34,13 @@ module.exports = defineConfig({
         redisUrl: process.env.REDIS_URL,
       },
     },
-    {
+    /*{
       resolve: "@medusajs/medusa/workflow-engine-redis",
       options: {
-        redisUrl: process.env.REDIS_URL,
+        redis: {
+          url: process.env.REDIS_URL,
+        },
       },
-    },
+    },*/
   ]
 })
